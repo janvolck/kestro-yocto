@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<remote fetch="ssh://git@github.com:janvolck" name="kestro"/>
+	<remote fetch="git://github.com/janvolck" name="kestro"/>
 
 	<project remote="kestro" name="meta-kestro"  path="sources/meta-kestro"/>
 	<project remote="kestro" name="kestro-yocto" path="kestro-yocto" >
