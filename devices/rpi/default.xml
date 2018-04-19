@@ -3,6 +3,7 @@
 	<default sync-j="1" revision="master"/>
 
 	<include name="devices/include/kestro.xml"/>
+	<include name="devices/include/openembedded.xml"/>
 	<include name="devices/include/qt5.xml"/>
 	<include name="devices/include/yocto.xml"/>
 </manifest>
