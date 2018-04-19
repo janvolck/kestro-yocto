@@ -2,7 +2,7 @@
 <manifest>
 	<default sync-j="1" revision="master"/>
 
-	<include name="kestro-yocto/devices/include/kestro.xml"/>
-	<include name="kestro-yocto/devices/include/qt5.xml"/>
-	<include name="kestro-yocto/devices/include/yocto.xml"/>
+	<include name="devices/include/kestro.xml"/>
+	<include name="devices/include/qt5.xml"/>
+	<include name="devices/include/yocto.xml"/>
 </manifest>
