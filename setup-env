@@ -1,0 +1,138 @@
+#!/bin/sh
+SOURCESDIR="$PWD/sources"
+SCRIPTSDIR="$PWD/kestro-yocto"
+STATEDIR="$PWD/.state"
+STATELAYERS="$STATEDIR/.layers"
+
+create_work_directories () {
+
+	if [ ! -d $STATEDIR ]; then
+        	mkdir -p $STATEDIR
+	fi
+}
+
+run_script () {
+
+	if [ -z "$1" ]; then
+			echo "Not enough parameters provided to run script [$1]"
+			return 1
+	fi
+
+	script_path="$SCRIPTSDIR/init/$1"
+	state_path="$STATEDIR/$1.md5"
+
+	if [ ! -e $script_path ]; then
+		echo "Script not found [$1]"
+		return 2
+	fi
+
+	$script_path && md5sum $script_path > $state_path
+	if [ $? -ne 0 ]; then
+		echo "Failed to run script $script_path [err: $?]"
+        return $?
+	fi
+}
+
+verify_and_run_script () {
+
+	if [ -z "$1" ]; then
+		echo "Not enough parameters provided to verify script [$1]"
+		return 0
+	fi
+
+	script_path="$SCRIPTSDIR/init/$1"
+    state_path="$STATEDIR/$1.md5"
+
+	if [ -e $state_path ]; then
+		md5sum --check $state_path || run_script $*
+	else
+		run_script $*
+	fi
+}
+
+_add-bitbake-layer () {
+
+	bitbake-layers add-layer $1
+	echo "$1: ADDED"
+
+	bitbake-layers show-layers > $STATELAYERS
+}
+
+add-bitbake-layer () {
+
+	if [ -z "$1" ]; then
+			echo "No layer was specified"
+			return 1
+	fi
+
+	if [ -z "$SOURCESDIR" ]; then
+			echo "SOURCESDIR was not defined"
+			return 2
+	fi
+
+    layer_path=$SOURCESDIR/$1
+    grep -q " $layer_path " $STATELAYERS || _add-bitbake-layer $layer_path
+}
+
+print_help () {
+
+	echo "To get start run setup-env and specify one of the following devices: "
+
+	for device in $SCRIPTSDIR/devices/*
+	do
+		echo $(basename $device)
+	done
+
+	echo ""
+	echo "Usage: . setup-env $(basename $device)"
+}
+
+initialize () {
+
+	if [ "$1" == "-h" ] || [ "$1" == "--help" ] || [ "$1" == "help" ]; then
+
+		print_help
+		return 0
+	fi
+
+	if [ -z "$1" ]; then
+
+		echo "No valid device specified to setup environment."
+		print_help
+
+		return 1
+	fi
+
+	device_dir=$SCRIPTSDIR/devices/$1
+	if [ ! -d $device_dir ]; then
+		echo "Device $1 is unknown, please add a device configuration directory $device_dir with device specific configurations."
+		print_help
+		return 2
+	fi
+
+	create_work_directories
+
+	for script in $SCRIPTSDIR/init/*
+	do
+		verify_and_run_script $(basename $script)
+	done
+
+	device_configs=$device_dir/conf/*.conf
+	build_dir="build-$1"
+	conf_dir="$build_dir/conf"
+
+	if [ ! -d "$conf_dir" ]; then
+		mkdir -p "$conf_dir"
+	fi
+
+	for device_config in $device_configs
+	do
+		cp $device_config "$conf_dir"
+	done
+
+	. $SOURCESDIR/poky/oe-init-build-env $build_dir
+	. $SCRIPTSDIR/bash_completion/bitbake
+}
+
+initialize $*
+
