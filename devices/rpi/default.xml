@@ -6,4 +6,5 @@
 	<include name="devices/include/openembedded.xml"/>
 	<include name="devices/include/qt5.xml"/>
 	<include name="devices/include/yocto.xml"/>
+	<include name="devices/include/rpi.xml"/>
 </manifest>

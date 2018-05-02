@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<remote fetch="git://github.com/agherzan" name="rpi"/>
+
+	<project remote="rpi" revision="rocko" name="meta-raspberrypi" path="sources/meta-raspberrypi"/>
+</manifest>
