@@ -2,8 +2,8 @@
 <manifest>
 	<remote fetch="git://github.com/janvolck" name="kestro"/>
 
-	<project remote="kestro" name="meta-kestro" path="sources/meta-kestro"/>
-	<project remote="kestro" name="kestro-yocto" path="kestro-yocto" >
+	<project remote="kestro" revision="master" name="meta-kestro" path="sources/meta-kestro"/>
+	<project remote="kestro" revision="master" name="kestro-yocto" path="kestro-yocto" >
 		<copyfile dest="setup-env" src="setup-env"/>
 	</project>
 

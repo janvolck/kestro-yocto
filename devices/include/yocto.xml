@@ -2,5 +2,5 @@
 <manifest>
 	<remote fetch="git://git.yoctoproject.org" name="yoctoproject"/>
 
-	<project remote="yoctoproject" revision="rocko" name="poky" path="sources/poky"/>
+	<project remote="yoctoproject" name="poky" path="sources/poky"/>
 </manifest>
