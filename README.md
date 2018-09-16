@@ -11,5 +11,5 @@ Repo manifests to setup yocto environment for kestro builds.
 
 ## Sync repo
 
-    repo init -u git@github.com:janvolck/kestro-yocto.git -b master -m devices/rpi/default.xml
+    repo init -u git@github.com:janvolck/kestro-yocto.git -b master -m repo/default.xml
     repo sync
