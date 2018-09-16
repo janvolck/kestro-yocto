@@ -4,7 +4,7 @@
 
 	<include name="devices/include/kestro.xml"/>
 	<include name="devices/include/openembedded.xml"/>
-	<include name="devices/include/qt5.xml"/>
+	<include name="devices/include/qt.xml"/>
 	<include name="devices/include/yocto.xml"/>
-	<include name="devices/include/rpi.xml"/>
+	<include name="devices/include/zulu.xml"/>
 </manifest>

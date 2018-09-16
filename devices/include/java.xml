@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-	<remote fetch="https://github.com/zulu-openjdk/" name="java"/>
-
-	<project remote="java" revision="master" name="meta-zulu-java" path="sources/meta-zulu-java"/>
-</manifest>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-	<remote fetch="git://github.com/meta-qt5" name="qt5"/>
-
-	<project remote="qt5" name="meta-qt5" path="sources/meta-qt5"/>
-</manifest>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-	<remote fetch="git://git.yoctoproject.org" name="rpi"/>
-
-	<project remote="rpi" name="meta-raspberrypi" path="sources/meta-raspberrypi"/>
-</manifest>

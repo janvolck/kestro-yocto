@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<remote fetch="https://code.qt.io/yocto" name="qt"/>
+
+	<project remote="qt" name="meta-qt5" path="sources/meta-qt5"/>
+</manifest>
