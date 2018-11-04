@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<default sync-j="1" revision="sumo"/>
+	<default sync-j="1" revision="master"/>
 
 	<include name="repo/include/kestro.xml"/>
 	<include name="repo/include/openembedded.xml"/>
