@@ -4,8 +4,6 @@
 
 	<project remote="yoctoproject" name="poky" path="sources/poky"/>
 	
-	<project remote="yoctoproject" name="meta-java" path="sources/meta-java"/>
-
 	<project remote="yoctoproject" name="meta-raspberrypi" path="sources/meta-raspberrypi"/>
 	<project remote="yoctoproject" revision="master" name="meta-rockchip" path="sources/meta-rockchip"/>	
 	

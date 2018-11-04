@@ -2,5 +2,5 @@
 <manifest>
 	<remote fetch="https://code.qt.io/yocto" name="qt"/>
 
-	<project remote="qt" revision="refs/tags/v5.9.6" name="meta-qt5" path="sources/meta-qt5"/>
+	<project remote="qt" revision="refs/tags/v5.9.7" name="meta-qt5" path="sources/meta-qt5"/>
 </manifest>
