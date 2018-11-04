@@ -6,5 +6,4 @@
 	<include name="repo/include/openembedded.xml"/>
 	<include name="repo/include/qt.xml"/>
 	<include name="repo/include/yocto.xml"/>
-	<include name="repo/include/zulu.xml"/>
 </manifest>
